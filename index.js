@@ -5,6 +5,10 @@ require("dotenv").config();
 require("./startup/routes")(app);
 require("./startup/db")(app);
 
+app.get("/", (req, res) => {
+  res.send("This my app");
+});
+
 const port = process.env.PORT || 5000;
 
 module.exports = app.listen(port, () => {
