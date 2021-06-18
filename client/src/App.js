@@ -1,10 +1,15 @@
+import React from "react";
+import { HashRouter as Router } from "react-router-dom";
+import Routes from "./routes";
+import Header from "./components/header";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>AAAAAAAAAAA</p>
-      </header>
-    </div>
+    <Router>
+      <React.Fragment>
+        <Header />
+        <Routes />
+      </React.Fragment>
+    </Router>
   );
 }
 
