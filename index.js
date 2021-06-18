@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 
 require("dotenv").config();
-require("./startup/routes")(app);
+
 require("./startup/db")(app);
+require("./startup/routes")(app);
 
 app.get("/", (req, res) => {
   res.send("This my app");

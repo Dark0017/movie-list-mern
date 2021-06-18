@@ -9,10 +9,10 @@ const Header = () => {
         </h1>
       </div>
       <div className="flex flex-row gap-x-1 pt-1">
-        <button className="flex w-1/2 text-2xl justify-center border-2   p-3 font-sans text-gray-600 active:text-red-600 focus:outline-none hover:text-white hover:bg-gray-900	 hower: transition duration-400 ease-out">
+        <button className="flex w-1/2 text-2xl justify-center border-2 p-3 font-sans text-gray-600 active:text-red-600 focus:outline-none hover:text-white hover:bg-gray-900	 hower: transition duration-400 ease-out">
           FORM
         </button>
-        <button className="flex w-1/2 text-2xl justify-center border-2  p-3 pr-2 font-sans text-gray-600 active:text-red-600 focus:outline-none hover:text-white hover:bg-gray-900  transition duration-400 ease-out">
+        <button className="flex w-1/2 text-2xl justify-center border-2 p-3 pr-2 font-sans text-gray-600 active:text-red-600 focus:outline-none hover:text-white hover:bg-gray-900  transition duration-400 ease-out">
           FEED
         </button>
       </div>
