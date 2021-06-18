@@ -3,7 +3,7 @@ const app = express();
 
 require("dotenv").config();
 require("./startup/routes")(app);
-//require("./startup/db")(app);
+require("./startup/db")(app);
 
 app.get("/", (req, res) => {
   res.send("This my app");

@@ -6,8 +6,8 @@ const Form = () => {
         <div className="flex flex-row flex-grow gap-x-4">
           <div className="flex flex-col w-2/3 gap-y-5">
             <div className="flex flex-row w-full gap-x-3">
-              <input placeholder="name" className="w-2/4 h-20 p-1" />
-              <input placeholder="year" className="w-2/4 h-20 p-1" />
+              <input placeholder="Name" className="w-2/4 h-20 p-1" />
+              <input placeholder="Year" className="w-2/4 h-20 p-1" />
             </div>
             <div className="w-full bg-yellow-100 h-20 p-1">Language</div>
           </div>
