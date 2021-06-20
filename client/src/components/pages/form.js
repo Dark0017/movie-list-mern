@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Joi from "joi-browser";
+import axios from "axios";
 
 const Form = () => {
   const [movie, setMovie] = useState({ name: "", year: "", language: "" });
@@ -29,10 +30,15 @@ const Form = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     validateForm();
-    console.log("current movie: ", movie);
+    try {
+      const res = await axios.post("http://localhost:5000/api/movie", movie);
+      console.log(res);
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <form className="container py-20 mx-auto" onSubmit={handleSubmit}>

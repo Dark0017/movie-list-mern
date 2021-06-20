@@ -3,7 +3,8 @@ const app = express();
 
 require("dotenv").config();
 
-require("./startup/db")(app);
+const { db } = require("./startup/db");
+db(app);
 require("./startup/routes")(app);
 
 app.get("/", (req, res) => {

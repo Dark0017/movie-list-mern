@@ -10,7 +10,6 @@ router.post("/", async (req, res) => {
   }
 
   const movie = Movie(pickMovieData(req.body));
-
   try {
     const saveRes = await movie.save();
     res.status(200).send(saveRes);
