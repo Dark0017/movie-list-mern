@@ -21,7 +21,7 @@ router.post("/", async (req, res) => {
 });
 
 //Read
-router.get("/", (req, res) => {
+router.get("/ ", (req, res) => {
   res.send("YOOOOOO");
 });
 //Update
