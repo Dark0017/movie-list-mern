@@ -8,7 +8,6 @@ module.exports = function (app) {
   app.use(cors());
 
   app.use("/api/movie", movies);
-
   if (process.env.NODE_ENV == "development") {
     app.use(express.static("client/build"));
   }
