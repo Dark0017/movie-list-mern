@@ -21,6 +21,7 @@ const Form = () => {
     const res = Joi.validate(movie, movieSchema, "allowUnknown:true");
     if (res.error) {
       console.log(res.error.details[0].message);
+      alert("Invalid input")
     }
   };
 
@@ -38,7 +39,6 @@ const Form = () => {
     if (e.currentTarget.files[0]) {
       const file = e.currentTarget.files[0];
       const fileName = file.name;
-      console.log(file);
       const re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
       if (!re.exec(fileName)) {
         alert("File extension not supported!");
@@ -73,31 +73,29 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //validateForm();
+    validateForm();
     const bodyData = new FormData();
     for (const data in movie) bodyData.append(data, movie[data]);
     try {
       //`https://ayushmans-movie-app.herokuapp.com/api/movie` remote string
-      console.log("Submitted form");
       const res = await axios.post(
         "https://ayushmans-movie-app.herokuapp.com/api/movie",
         bodyData
       );
-      console.log(res);
     } catch (e) {
       console.log(e);
     }
   };
   return (
     <form
-      className="container py-20 mx-auto mt-16 bg-gray-100 rounded-lg shadow-md"
+      className="container w-4/5 pt-20 pb-2 mx-auto mt-10 mb-10 bg-gray-100 shadow-lg rouded-lg"
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col w-4/5 px-20 py-6 mx-auto border-t-2 border-black gap-y-3">
         <div className="flex flex-row flex-grow gap-x-4">
           <div className="flex flex-col w-2/3 gap-y-10">
             <div className="flex flex-row w-full gap-x-3">
-              <label className="clear-both w-2/4 h-20 p-1">
+              <label className="clear-both w-2/4 h-16 p-1">
                 <span>Name</span>
                 <input
                   id="nameInput"
@@ -108,10 +106,10 @@ const Form = () => {
                   onChange={(e) =>
                     setMovie({ ...movie, name: e.currentTarget.value })
                   }
-                  className="block w-full h-20 p-2 mt-1 border-2 border-gray-300 rounded-lg"
+                  className="block w-full h-16 p-2 mt-1 border-2 border-gray-300 rounded-lg"
                 />
               </label>
-              <label className="w-2/4 h-20 p-1 clear-left">
+              <label className="w-2/4 h-16 p-1 clear-left">
                 Year
                 <input
                   id="yearInput"
@@ -123,7 +121,7 @@ const Form = () => {
                     setMovie({ ...movie, year: e.currentTarget.value })
                   }
                   list="years"
-                  className="block w-full h-20 p-2 mt-1 border-2 border-gray-300 rounded-lg"
+                  className="block w-full h-16 p-2 mt-1 border-2 border-gray-300 rounded-lg"
                 />
                 <datalist
                   id="years"
@@ -137,7 +135,7 @@ const Form = () => {
             </div>
             <div className="flex flex-row w-full">
               <label className="w-full p-1">
-                <span className="text-xl">Language</span>
+                <span className="text-l">Language</span>
                 <input
                   id="languageInput"
                   type="text"
@@ -146,13 +144,13 @@ const Form = () => {
                   onChange={(e) =>
                     setMovie({ ...movie, language: e.currentTarget.value })
                   }
-                  className="w-full h-20 p-2 mt-1 border-2 border-gray-300 rounded-lg"
+                  className="w-full h-16 p-2 mt-1 border-2 border-gray-300 rounded-lg"
                   placeholder="Hindi"
                 />
               </label>
             </div>
           </div>
-          <div className="relative w-1/3 overflow-hidden transition duration-200 border-2 border-gray-300 rounded-full group hover:bg-black">
+          <div className="relative w-1/3 overflow-hidden transition duration-200 border-2 border-gray-300 rounded-3xl group hover:bg-black">
             <button className="w-full h-full">
               <span className="font-thin text-black group-hover:text-blue-700 ">
                 <HiUpload className="m-auto text-7xl" />
@@ -213,7 +211,7 @@ const Form = () => {
           type="submit"
           className="w-full h-16 font-sans text-3xl font-normal transition duration-200 bg-blue-300 group hover:bg-blue-500"
         >
-          <span className="group-hover:text-white">UPLOAD MOVIE</span>
+          <span className="font-thin group-hover:text-white">UPLOAD MOVIE</span>
         </button>
       </div>
     </form>
