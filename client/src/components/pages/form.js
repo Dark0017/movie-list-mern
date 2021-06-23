@@ -21,7 +21,7 @@ const Form = () => {
     const res = Joi.validate(movie, movieSchema, "allowUnknown:true");
     if (res.error) {
       console.log(res.error.details[0].message);
-      alert("Invalid input")
+      alert("Invalid input");
     }
   };
 
@@ -73,15 +73,13 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    validateForm();
+    //validateForm();
     const bodyData = new FormData();
     for (const data in movie) bodyData.append(data, movie[data]);
     try {
       //`https://ayushmans-movie-app.herokuapp.com/api/movie` remote string
-      const res = await axios.post(
-        "https://ayushmans-movie-app.herokuapp.com/api/movie",
-        bodyData
-      );
+      const res = await axios.post("https://ayushmans-movie-app.herokuapp.com/api/movie", bodyData);
+      console.log(res);
     } catch (e) {
       console.log(e);
     }
