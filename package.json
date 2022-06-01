@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Dark0017/movie-list-mern#readme",
   "dependencies": {
+    "axios": "^0.23.0",
     "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
